@@ -11,23 +11,23 @@ kubectl apply -f psp-priv.yml
 kubectl apply -f psp-restricted.yml
 ```
 
-1. Apply the clusterroles
+2. Apply the clusterroles
 
 ```bash
 kubectl apply -f priv-cr.yml
 kubectl apply -f restricted-cr.yml
 ```
 
-1. Create the privileged namespace and the role binding for the default service account in that namespace
+3. Create the privileged namespace and the role binding for the default service account in that namespace
 
 ```bash
 kubectl apply -f priv-ns-rb.yml
 ```
 
-1. Apply the restricted cluster role binding to all other service accounts
+4. Apply the restricted cluster role binding to all other service accounts
 
 ```bash
 kubectl apply -f restricted-ns-crb.yml
 ```
 
-1. Now you can test applying the different deployment to each namespace. the `priv-deployment.yml` should only spin up pods when applying into the `privs` namespace.
+5. Now you can test applying the different deployment to each namespace. the `priv-deployment.yml` should only spin up pods when applying into the `privs` namespace.
